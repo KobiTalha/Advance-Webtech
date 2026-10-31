@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "university-system-api",
   "version": "1.0.0",
   "description": "NestJS University System API demonstrating dependency injection",
