@@ -9,4 +9,11 @@ export class CourseService {
   getCourseById(id: string): { message: string; id: string } {
     return { message: 'Course fetched', id };
   }
+
+  createCourse(name: string, code: string): {
+    message: string;
+    data: { name: string; code: string };
+  } {
+    return { message: 'Course created', data: { name, code } };
+  }
 }
