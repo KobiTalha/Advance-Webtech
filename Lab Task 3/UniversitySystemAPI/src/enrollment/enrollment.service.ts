@@ -12,10 +12,16 @@ export class EnrollmentService {
 
   enrollStudent(studentName: string, courseId: string) {
     const courseData = this.courseService.getCourseById(courseId);
+    const notification = this.notificationService.sendNotification(
+      studentName,
+      'Your enrollment was successful.',
+    );
+
     return {
       message: 'Student enrolled successfully',
       student: studentName,
       course: courseData,
+      notification,
     };
   }
 
