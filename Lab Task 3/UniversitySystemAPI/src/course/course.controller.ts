@@ -1,5 +1,7 @@
-﻿import { Controller, Get, Param } from '@nestjs/common';
+﻿import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CourseService } from './course.service';
+
+type CourseInput = { name?: string; code?: string };
 
 @Controller('course')
 export class CourseController {
@@ -13,5 +15,10 @@ export class CourseController {
   @Get(':id')
   getCourseById(@Param('id') id: string) {
     return this.courseService.getCourseById(id);
+  }
+
+  @Post()
+  createCourse(@Body() body?: CourseInput) {
+    return this.courseService.createCourse(body?.name ?? '', body?.code ?? '');
   }
 }
